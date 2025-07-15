@@ -1,3 +1,5 @@
+import java.util.*;
+
 public abstract class AnPham {
     protected String tuaDe;
     protected double giaMua;
@@ -16,7 +18,15 @@ public abstract class AnPham {
         this.giaBan = giaBan;
     }
 
-    public abstract void nhap();
+    public abstract void nhap(Scanner sc);
+
+    public double loiNhuan() {
+        return (giaBan - giaMua) * soLuongBan;
+    }
+
+    public void capNhatGiaBan(double giaBanMoi) {
+        this.giaBan = giaBanMoi;
+    }
 
     public double tongTriGiaBan() {
         return (double) soLuongBan * this.giaBan;

@@ -1,0 +1,39 @@
+BANG
+1989
+50.0
+60
+Republic Record
+100
+80.0
+
+DIA
+Kaykay
+70.0
+120
+Disney
+50
+100.0
+
+SACH
+Bay Buoc Toi Mua He
+30.0
+300
+NXB Tre
+50
+50.0
+
+BANG
+BRAT
+40.0
+45
+Atlantic Recording
+80
+65.0
+
+SACH
+Toan Cao Cấp
+45.0
+250
+NXB Giao Duc
+30
+70.0
