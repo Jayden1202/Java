@@ -9,23 +9,51 @@ public class QuanLyAnPham {
         int loai = sc.nextInt();
         sc.nextLine();
 
+        String tuaDe, nhaSanXuat;
+        double giaMua, giaBan;
+        int soLuongBan;
+
+        System.out.print("Nhap tua de: ");
+        tuaDe = sc.nextLine();
+        System.out.print("Nhap gia mua: ");
+        giaMua = sc.nextDouble();
+        sc.nextLine();
+        System.out.print("Nhap nha san xuat: ");
+        nhaSanXuat = sc.nextLine();
+        System.out.print("Nhap so luong ban: ");
+        soLuongBan = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Nhap gia ban: ");
+        giaBan = sc.nextDouble();
+        sc.nextLine();
+
         AnPham ap = null;
         switch (loai) {
-            case 1:
-                ap = new Bang();
+            case 1: {
+                System.out.print("Nhap thoi gian (phut): ");
+                int thoiGian = sc.nextInt();
+                sc.nextLine();
+                ap = new Bang(tuaDe, giaMua, thoiGian, nhaSanXuat, soLuongBan, giaBan);
                 break;
-            case 2:
-                ap = new Dia();
+            }
+            case 2: {
+                System.out.print("Nhap thoi gian (phut): ");
+                int thoiGian = sc.nextInt();
+                sc.nextLine();
+                ap = new Dia(tuaDe, giaMua, thoiGian, nhaSanXuat, soLuongBan, giaBan);
                 break;
-            case 3:
-                ap = new Sach();
+            }
+            case 3: {
+                System.out.print("Nhap so trang: ");
+                int soTrang = sc.nextInt();
+                sc.nextLine();
+                ap = new Sach(tuaDe, giaMua, soTrang, nhaSanXuat, soLuongBan, giaBan);
                 break;
+            }
             default:
                 System.out.println("Loai khong hop le!");
                 return;
         }
-
-        ap.nhap(sc);
         dsAnPham.add(ap);
         System.out.println("Da them an pham!");
     }
@@ -368,6 +396,25 @@ public class QuanLyAnPham {
         }
         if (ap != null) {
             dsAnPham.add(ap);
+        }
+    }
+
+    public void xoaAnPham(Scanner sc) {
+        System.out.print("Nhap tua de an pham can xoa: ");
+        String tuaDe = sc.nextLine();
+        Iterator<AnPham> it = dsAnPham.iterator();
+        boolean found = false;
+        while (it.hasNext()) {
+            AnPham ap = it.next();
+            if (ap.tuaDe.equalsIgnoreCase(tuaDe)) {
+                it.remove();
+                found = true;
+                System.out.println("Da xoa an pham: " + tuaDe);
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay an pham co tua de: " + tuaDe);
         }
     }
 }
